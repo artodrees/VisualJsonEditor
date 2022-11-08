@@ -75,6 +75,7 @@ jobs:
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
       run: |
+        cd .\VisualJsonEditor\src\VisualJsonEditor\
         msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
@@ -82,7 +83,7 @@ jobs:
     # Build the app
     - name: Build the app 
       run: |
-        cd 
+        cd .\VisualJsonEditor\src\VisualJsonEditor\
         msbuild /p:Configuration=$env:Configuration $env:Solution_Name
       env:
         Configuration: ${{ matrix.configuration }}
